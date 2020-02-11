@@ -21,8 +21,4 @@ class Field:
 
         for x in range(-xt + 1, xt):
             for y in range(-yt + 1, yt):
-                Field.draw_vector(x, y, atan2(Field.calculate_value(x, y, fY), Field.calculate_value(x, y, fX)), canvas)
-
-    def calculate_value(x, y, func):
-        return eval(func)
-
+                Field.draw_vector(x, y, atan2(eval(fY), eval(fX)), canvas)
