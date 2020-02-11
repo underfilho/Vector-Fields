@@ -1,7 +1,7 @@
 from tkinter import *
 from utils.config import Config
 from utils.vector import *
-import math
+from math import *
 
 class Field:
     def draw_point(x, y, canvas):
@@ -10,8 +10,8 @@ class Field:
 
     def draw_vector(x, y, angle, canvas):
         vector = position(x, y)
-        xf = Config.scale * 0.5 * math.cos(angle)
-        yf = Config.scale * -0.5 * math.sin(angle)
+        xf = Config.scale * 0.5 * cos(angle)
+        yf = Config.scale * -0.5 * sin(angle)
         
         canvas.create_line(vector.x - xf, vector.y - yf, vector.x + xf, vector.y + yf, fill=Config.lineColor, arrow=LAST)
 
@@ -21,7 +21,7 @@ class Field:
 
         for x in range(-xt + 1, xt):
             for y in range(-yt + 1, yt):
-                Field.draw_vector(x, y, math.atan2(Field.calculate_value(x, y, fY), Field.calculate_value(x, y, fX)), canvas)
+                Field.draw_vector(x, y, atan2(Field.calculate_value(x, y, fY), Field.calculate_value(x, y, fX)), canvas)
 
     def calculate_value(x, y, func):
         return eval(func)
